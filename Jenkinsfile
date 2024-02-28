@@ -2,19 +2,19 @@ pipeline {
     agent any 
     
     tools{
-        jdk 'jdk11'
-        maven 'maven3'
+        jdk 'java17'
+        maven 'localMaven'
     }
     
     environment {
-        SCANNER_HOME=tool 'sonar-scanner'
+        SCANNER_HOME=tool '	sonar-tokenr'
     }
     
     stages{
         
         stage("Git Checkout"){
             steps{
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/jaiswaladi246/Petclinic.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Rupeshkr004/Petclinic.git'
             }
         }
         
@@ -57,11 +57,11 @@ pipeline {
         // stage("Docker Build & Push"){
         //     steps{
         //         script{
-        //            withDockerRegistry(credentialsId: '58be877c-9294-410e-98ee-6a959d73b352', toolName: 'docker') {
+        //            withDockerRegistry(credentialsId: 'dckr_pat_uYAYSyJ8Vr-jCWo8BtJwM7d9JBY', toolName: 'docker') {
                         
         //                 sh "docker build -t image1 ."
-        //                 sh "docker tag image1 adijaiswal/pet-clinic123:latest "
-        //                 sh "docker push adijaiswal/pet-clinic123:latest "
+        //                 sh "docker tag image1 rupeshrk004/pet-clinic123:latest "
+        //                 sh "docker push rupeshrk004/pet-clinic123:latest "
         //             }
         //         }
         //     }
@@ -69,7 +69,7 @@ pipeline {
         
         // stage("TRIVY"){
         //     steps{
-        //         sh " trivy image adijaiswal/pet-clinic123:latest"
+        //         sh " trivy image rupeshrk004/pet-clinic123:latest"
         //     }
         // }
         
