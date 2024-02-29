@@ -297,7 +297,7 @@
 
          <dependency>
            <groupId>org.jacoco</groupId>
-           <artifactIf>jacoco-maven-plugin</artifactIf>
+           <artifactId>jacoco-maven-plugin</artifactId>
            <version>0.8.6</version>
          </dependency>
 
